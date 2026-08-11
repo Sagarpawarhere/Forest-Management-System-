@@ -1,0 +1,13 @@
+sequenceDiagram
+    actor User
+    participant UI as React Frontend
+    participant API as Express API
+    participant DB as MongoDB
+
+    User->>UI: Fill incident form and click Submit
+    UI->>API: POST /api/incidents
+    API->>API: Validate request data1
+    API->>DB: Save incident
+    DB-->>API: Incident stored
+    API-->>UI: 201 Created plus JSON response
+    UI-->>User: Updated incident list shown

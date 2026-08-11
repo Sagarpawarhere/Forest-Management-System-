@@ -1,0 +1,53 @@
+flowchart TD
+    U[User]
+    P1[Authentication Process]
+    P2[Forest Management Process]
+    P3[Species and Tree Management Process]
+    P4[Incident and Patrol Process]
+    P5[Environmental and Wildlife Process]
+    P6[Reporting and Dashboard Process]
+
+    D1[(User DB)]
+    D2[(Forest DB)]
+    D3[(Species DB)]
+    D4[(Tree DB)]
+    D5[(Incident DB)]
+    D6[(PatrolLog DB)]
+    D7[(EnvironmentalData DB)]
+    D8[(Wildlife DB)]
+
+    U -->|Register/Login| P1
+    P1 <--> D1
+    P1 -->|JWT/Auth result| U
+
+    U -->|Add/View/Edit/Delete Forest| P2
+    P2 <--> D2
+    P2 -->|Forest data| U
+
+    U -->|Manage Species/Trees| P3
+    P3 <--> D3
+    P3 <--> D4
+    P3 <--> D2
+    P3 -->|Species/Tree data| U
+
+    U -->|Log Incidents/Patrol Logs| P4
+    P4 <--> D5
+    P4 <--> D6
+    P4 <--> D2
+    P4 -->|Incident/Patrol info| U
+
+    U -->|View/Add Wildlife and Environmental Data| P5
+    P5 <--> D7
+    P5 <--> D8
+    P5 <--> D2
+    P5 -->|Monitoring data| U
+
+    U -->|View Dashboard/Reports| P6
+    P6 <--> D2
+    P6 <--> D3
+    P6 <--> D4
+    P6 <--> D5
+    P6 <--> D6
+    P6 <--> D7
+    P6 <--> D8
+    P6 -->|Summaries/analytics| U

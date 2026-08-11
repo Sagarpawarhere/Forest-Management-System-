@@ -1,0 +1,81 @@
+erDiagram
+    USER {
+        string _id
+        string name
+        string email
+        string password
+        string role
+        date createdAt
+        date updatedAt
+    }
+
+    FOREST {
+        string _id
+        string name
+        string location
+        number area
+        date createdAt
+    }
+
+    SPECIES {
+        string _id
+        string forestId
+        string species
+        number age
+        string healthStatus
+        date createdAt
+        date updatedAt
+    }
+
+    TREE {
+        string _id
+        string forestId
+        string species
+        number age
+        string healthStatus
+    }
+
+    WILDLIFE {
+        string _id
+        string forestId
+        string species
+        number count
+        date recordedAt
+    }
+
+    ENVIRONMENTAL_DATA {
+        string _id
+        string forestId
+        number temperature
+        number rainfall
+        number soilMoisture
+        date recordedAt
+    }
+
+    INCIDENT {
+        string _id
+        string forestId
+        string type
+        string severity
+        string description
+        date date
+        date createdAt
+        date updatedAt
+    }
+
+    PATROL_LOG {
+        string _id
+        string forestId
+        string ranger
+        date date
+        string notes
+        date createdAt
+        date updatedAt
+    }
+
+    FOREST ||--o{ SPECIES : has
+    FOREST ||--o{ TREE : has
+    FOREST ||--o{ WILDLIFE : has
+    FOREST ||--o{ ENVIRONMENTAL_DATA : records
+    FOREST ||--o{ INCIDENT : reports
+    FOREST ||--o{ PATROL_LOG : contains

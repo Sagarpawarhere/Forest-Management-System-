@@ -1,0 +1,35 @@
+flowchart LR
+    A[Admin]
+    O[Officer or Ranger]
+
+    UC1((Register or Login))
+    UC2((Manage Forests))
+    UC3((Manage Species))
+    UC4((Manage Trees))
+    UC5((Manage Incidents))
+    UC6((Manage Patrol Logs))
+    UC7((View Dashboard))
+    UC8((View Reports))
+    UC9((Manage Wildlife))
+    UC10((Manage Environmental Data))
+
+    A --> UC1
+    A --> UC2
+    A --> UC3
+    A --> UC4
+    A --> UC5
+    A --> UC6
+    A --> UC7
+    A --> UC8
+    A --> UC9
+    A --> UC10
+
+    O --> UC1
+    O --> UC3
+    O --> UC4
+    O --> UC5
+    O --> UC6
+    O --> UC7
+    O --> UC8
+    O --> UC9
+    O --> UC10

@@ -1,0 +1,91 @@
+classDiagram
+    class User {
+        +String name
+        +String email
+        +String password
+        +String role
+        +register()
+        +login()
+    }
+
+    class Forest {
+        +String name
+        +String location
+        +Number area
+        +createForest()
+        +getForests()
+        +updateForest()
+        +deleteForest()
+    }
+
+    class Species {
+        +String forestId
+        +String species
+        +Number age
+        +String healthStatus
+        +createSpecies()
+        +getSpecies()
+        +updateSpecies()
+        +deleteSpecies()
+    }
+
+    class Tree {
+        +String forestId
+        +String species
+        +Number age
+        +String healthStatus
+        +createTree()
+        +getTrees()
+        +updateTree()
+        +deleteTree()
+    }
+
+    class Incident {
+        +String forestId
+        +String type
+        +String severity
+        +String description
+        +Date date
+        +createIncident()
+        +getIncidents()
+        +updateIncident()
+        +deleteIncident()
+    }
+
+    class PatrolLog {
+        +String forestId
+        +String ranger
+        +Date date
+        +String notes
+        +createPatrolLog()
+        +getPatrolLogs()
+        +updatePatrolLog()
+        +deletePatrolLog()
+    }
+
+    class EnvironmentalData {
+        +String forestId
+        +Number temperature
+        +Number rainfall
+        +Number soilMoisture
+        +Date recordedAt
+        +addEnvironmentalData()
+        +getEnvironmentalData()
+    }
+
+    class Wildlife {
+        +String forestId
+        +String species
+        +Number count
+        +Date recordedAt
+        +createWildlife()
+        +getWildlife()
+        +updateWildlife()
+    }
+
+    Forest "1" --> "*" Species
+    Forest "1" --> "*" Tree
+    Forest "1" --> "*" Incident
+    Forest "1" --> "*" PatrolLog
+    Forest "1" --> "*" EnvironmentalData
+    Forest "1" --> "*" Wildlife
